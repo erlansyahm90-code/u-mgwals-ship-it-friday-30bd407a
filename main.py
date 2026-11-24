@@ -16,9 +16,9 @@ ENTRY = (
 
 def main():
     """Write the entry line to output/entry.txt (UTF-8, one line)."""
-    output_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "output")
-    os.makedirs(output_dir, exist_ok=True)
-    entry_path = os.path.join(output_dir, "entry.txt")
+    # make.fun harness reads the entry at the absolute /output/entry.txt
+    os.makedirs("/output", exist_ok=True)
+    entry_path = "/output/entry.txt"
     with open(entry_path, "w", encoding="utf-8") as f:
         f.write(ENTRY + "\n")
     print(f"Wrote {len(ENTRY)}-character entry to {entry_path}")
